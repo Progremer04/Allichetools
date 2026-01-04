@@ -3,89 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alliche Tools — Built With Heart, Against All Odds</title>
+  <title>Alliche Tools — Professional Utilities</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <meta name="description" content="Every tool is a piece of my soul, built while fighting health battles. Your support keeps this dream alive." />
-  
   <style>
     @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } }
     @keyframes pulseGlow { 0%, 100% { opacity: .3; } 50% { opacity: .6; } }
     @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100vh); } }
     @keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-    @keyframes gentlePulse { 0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); } 50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6); } }
     @keyframes fadeInOut { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
-    @keyframes parallax { 0% { transform: translateY(0px); } 100% { transform: translateY(-20px); } }
-
+    
     .animate-float { animation: float 20s ease-in-out infinite; }
     .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
     .animate-scanline { animation: scanline 8s linear infinite; }
     .animate-shimmer { animation: shimmer 3s infinite linear; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); background-size: 1000px 100%; }
-    .fade-in-up { animation: fadeInUp .8s ease-out forwards; }
-    .delay-1 { animation-delay: .2s; opacity: 0; }
-    .delay-2 { animation-delay: .4s; opacity: 0; }
-    .delay-3 { animation-delay: .6s; opacity: 0; }
-    .text-gradient { background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 3s infinite linear; }
+    .text-gradient { background: linear-gradient(90deg, #00ffff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .grid-pattern { background-image: linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px); background-size: 40px 40px; }
-    .card-glow { box-shadow: 0 0 20px rgba(0, 255, 255, 0.1), 0 0 40px rgba(255, 0, 255, 0.05), inset 0 0 40px rgba(0, 0, 0, 0.2); }
-    .tool-card { transition: transform .3s ease, box-shadow .3s ease; }
-    .tool-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 255, 0.2), 0 0 60px rgba(255, 0, 255, 0.1); }
-    .heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
-    .glow-pulse { animation: gentlePulse 2s ease-in-out infinite; }
-    .fade-in-out { animation: fadeInOut 3s ease-in-out infinite; }
-    .parallax-element { animation: parallax 6s ease-in-out infinite alternate; }
-
-    /* Music control button */
-    .music-control {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 1000;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #00ffff, #ff00ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    .music-control:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(255, 0, 255, 0.6); }
-    .music-control.playing { animation: gentlePulse 1.5s infinite; }
-    .music-control i { font-size: 24px; color: white; }
-
-    /* Emotional story overlays */
-    .struggle-highlight {
-      background: linear-gradient(90deg, rgba(255,0,0,0.1), transparent);
-      border-left: 3px solid #ff4444;
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-    }
-    .hope-highlight {
-      background: linear-gradient(90deg, rgba(0,255,0,0.1), transparent);
-      border-left: 3px solid #44ff44;
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-    }
+    
+    body { position: relative; }
+    .bg-overlay { position: fixed; inset: 0; z-index: -10; overflow: hidden; }
   </style>
 </head>
+<body class="bg-gray-950 text-gray-100 antialiased">
 
-<body class="bg-gray-950 text-gray-100 overflow-x-hidden">
   <!-- Animated Background -->
-  <div class="fixed inset-0 -z-10 overflow-hidden">
+  <div class="bg-overlay">
     <div class="absolute inset-0 grid-pattern"></div>
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-scanline"></div>
-    <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan-500/5 blur-3xl animate-float"></div>
-    <div class="absolute top-3/4 right-1/4 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl animate-float" style="animation-delay: -10s;"></div>
-    <div class="absolute bottom-1/4 left-1/3 w-80 h-80 rounded-full bg-pink-500/5 blur-3xl animate-float" style="animation-delay: -5s;"></div>
-    <div class="absolute top-1/3 right-1/3 w-4 h-4 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50 animate-pulse-glow"></div>
-    <div class="absolute bottom-1/3 left-1/5 w-3 h-3 rounded-full bg-purple-400 shadow-lg shadow-purple-400/50 animate-pulse-glow" style="animation-delay: -2s;"></div>
-    <div class="absolute top-2/3 right-1/5 w-2 h-2 rounded-full bg-pink-400 shadow-lg shadow-pink-400/50 animate-pulse-glow" style="animation-delay: -1s;"></div>
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl animate-float"></div>
+    <div class="absolute top-3/4 right-1/4 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl animate-float" style="animation-delay: -10s;"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-80 h-80 rounded-full bg-pink-500/10 blur-3xl animate-float" style="animation-delay: -5s;"></div>
+    <div class="absolute top-1/3 right-1/3 w-4 h-4 rounded-full bg-cyan-400 shadow-lg animate-pulse-glow"></div>
+    <div class="absolute bottom-1/3 left-1/5 w-3 h-3 rounded-full bg-purple-400 shadow-lg animate-pulse-glow" style="animation-delay: -2s;"></div>
+    <div class="absolute top-2/3 right-1/5 w-2 h-2 rounded-full bg-pink-400 shadow-lg animate-pulse-glow" style="animation-delay: -1s;"></div>
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-0 left-10 font-mono text-xs text-cyan-300 animate-float" style="animation-duration: 15s;">101010</div>
       <div class="absolute top-20 left-1/4 font-mono text-xs text-purple-300 animate-float" style="animation-duration: 12s; animation-delay: -3s;">010101</div>
@@ -93,629 +43,235 @@
     </div>
   </div>
 
-  <!-- Audio Background -->
-  <audio id="bgMusic1" loop>
-    <source src="Alliche_Tools_version_1.mp3" type="audio/mpeg">
-  </audio>
-  <audio id="bgMusic2" loop>
-    <source src="Alliche_Tools_version_2.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Music Control -->
-  <div class="music-control" id="musicControl" onclick="toggleMusic()" title="Play/Pause Story Soundtrack">
-    <i class="fas fa-music" id="musicIcon"></i>
-  </div>
-
   <!-- Header -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-gray-950/80 backdrop-blur-lg">
-    <div class="mx-auto max-w-7xl px-4 py-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <img src="logo.jpg" alt="Alliche Tools Logo" class="h-10 w-10 rounded-xl object-cover shadow-lg shadow-cyan-400/30">
-          <div>
-            <div class="text-lg font-bold tracking-tight">Alliche Tools</div>
-            <div class="text-xs text-gray-400">Built with patience, passion & persistence</div>
-          </div>
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-gray-950/90 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+          <i class="fas fa-tools text-white"></i>
         </div>
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#tools" class="text-sm font-medium hover:text-cyan-300 transition-colors">Tools</a>
-          <a href="#story" class="text-sm font-medium hover:text-cyan-300 transition-colors">My Story</a>
-          <a href="#donate" class="text-sm font-medium hover:text-cyan-300 transition-colors">Support</a>
-          <a href="#community" class="text-sm font-medium hover:text-cyan-300 transition-colors">Community</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <a href="#donate" class="group relative overflow-hidden rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-cyan-500/25 hover:scale-105">
-            <span class="relative z-10">💖 Support My Work</span>
-            <div class="absolute inset-0 animate-shimmer"></div>
-          </a>
+        <div>
+          <div class="font-bold">Alliche Tools</div>
+          <div class="text-xs text-gray-400">Built with heart</div>
         </div>
       </div>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#tools" class="hover:text-cyan-400">Tools</a>
+        <a href="#community" class="hover:text-cyan-400">Community</a>
+        <a href="#support" class="hover:text-cyan-400">Support</a>
+      </nav>
+      <a href="https://allichetools-ff922c.gitlab.io/" target="_blank" class="rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 px-4 py-2 text-sm font-semibold hover:opacity-90">
+        Visit Full Site
+      </a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative mx-auto max-w-7xl px-4 py-20 md:py-32">
-    <div class="grid gap-12 md:grid-cols-2 items-center">
-      <div class="fade-in-up">
-        <div class="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 mb-6">
-          <i class="fas fa-heart text-cyan-300"></i>
-          <span class="text-sm font-medium">New Version Coming — Faster & Smarter</span>
-        </div>
-        <h1 class="text-5xl md:text-6xl font-bold leading-tight">
-          Tools That Make Your
-          <span class="text-gradient">Digital Life Easier</span>
-        </h1>
-        <p class="mt-6 text-lg text-gray-300 leading-relaxed">
-          Every utility is crafted with care to solve real problems. Despite limited resources and ongoing health challenges,
-          I keep building to help you work smarter and faster.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#tools" class="rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3 font-semibold text-white shadow-lg hover:shadow-cyan-500/25 transition-all hover:scale-105">
-            <i class="fas fa-tools mr-2"></i>Explore Tools
-          </a>
-          <a href="#story" class="rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold hover:bg-white/10 transition-all">
-            <i class="fas fa-heart mr-2"></i>My Story
-          </a>
-        </div>
-        <div class="mt-10 grid grid-cols-3 gap-4">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-            <div class="text-2xl font-bold text-cyan-300">Fast</div>
-            <div class="text-xs text-gray-400 mt-1">Optimized Performance</div>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-            <div class="text-2xl font-bold text-purple-300">Clean</div>
-            <div class="text-xs text-gray-400 mt-1">Organized Results</div>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-            <div class="text-2xl font-bold text-pink-300">Reliable</div>
-            <div class="text-xs text-gray-400 mt-1">99.9% Uptime</div>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in-up delay-1 relative">
-        <div class="relative rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-gray-900/80 to-gray-900/40 p-8 card-glow">
-          <div class="absolute -top-3 left-6 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 px-4 py-1 text-xs font-bold">
-            LATEST RELEASE
-          </div>
-          <div class="mb-6">
-            <h3 class="text-2xl font-bold">Alliche Extrateur Pro</h3>
-            <p class="text-gray-400 mt-2">ULP Combo Hunter & Organizer</p>
-          </div>
-          <div class="space-y-4">
-            <div class="flex items-start gap-3">
-              <i class="fas fa-bolt text-cyan-300 mt-1"></i>
-              <div>
-                <div class="font-medium">Auto Site Detection</div>
-                <p class="text-sm text-gray-400">Detects 8+ platforms automatically</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <i class="fas fa-globe text-purple-300 mt-1"></i>
-              <div>
-                <div class="font-medium">Sort by Site & Country</div>
-                <p class="text-sm text-gray-400">Organizes combos by geography & platform</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <i class="fas fa-rocket text-pink-300 mt-1"></i>
-              <div>
-                <div class="font-medium">Fast GUI</div>
-                <p class="text-sm text-gray-400">Handles large files without lag</p>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-3">
-            <a href="https://strmsstss-b8bfaa3f93ff.herokuapp.com/AgADmw82661/Alliche_ULP_Combo_Hunter_Extrateur_Pro.exe"
-               class="flex-1 min-w-[12rem] rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-4 py-3 text-center font-semibold text-white hover:opacity-90 transition-opacity">
-              <i class="fas fa-download mr-2"></i>Portable EXE
-            </a>
-            <a href="https://strmsstss-b8bfaa3f93ff.herokuapp.com/AgADmg82667/Alliche_ULP_Combo_Hunter_Extrateur_Pro_Setup.exe"
-               class="flex-1 min-w-[12rem] rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-center font-semibold hover:bg-white/10 transition-colors">
-              <i class="fas fa-wrench mr-2"></i>Setup Installer
-            </a>
-          </div>
-          <p class="text-xs text-gray-500 mt-4 text-center">
-            ⚠️ For educational & authorized testing only
-          </p>
-          <div class="absolute -bottom-6 -right-6 rounded-2xl border border-white/10 bg-gray-900/90 backdrop-blur p-4 shadow-xl">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-cyan-300">38,273+</div>
-              <div class="text-xs text-gray-400">Combos Processed</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 py-16 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+      Tools That Make Your <span class="text-gradient">Digital Work Easier</span>
+    </h1>
+    <p class="text-gray-400 max-w-3xl mx-auto mb-8">
+      Professional tools built with patience, passion, and persistence. Each utility solves real problems and saves you hours of manual work. I continue building despite limited resources and health challenges because I believe in helping the community.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#tools" class="rounded-lg bg-white/10 px-6 py-3 hover:bg-white/20">Explore Tools</a>
+      <a href="https://allichetools-ff922c.gitlab.io/" target="_blank" class="rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3 font-semibold hover:opacity-90">
+        See Full Details →
+      </a>
     </div>
   </section>
 
   <!-- Tools Section -->
-  <section id="tools" class="mx-auto max-w-7xl px-4 py-20">
-    <div class="text-center mb-12 fade-in-up">
-      <h2 class="text-4xl font-bold">Professional Tools</h2>
-      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Each tool is designed to solve specific problems and save you hours of manual work.</p>
-    </div>
+  <section id="tools" class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-12">Professional Tools</h2>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <div class="fade-in-up delay-1 tool-card rounded-3xl border border-cyan-500/20 bg-gradient-to-b from-gray-900/60 to-gray-900/30 p-6">
-        <div class="mb-4 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="rounded-xl bg-cyan-500/20 p-3">
-              <i class="fas fa-film text-cyan-300 text-xl"></i>
-            </div>
-            <div>
-              <div class="font-bold">Netflix ULP Extractor</div>
-              <div class="text-xs text-gray-400">Auto‑detection & organization</div>
-            </div>
+      
+      <!-- Netflix ULP Extractor -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-cyan-500/30 transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-10 w-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+            <i class="fas fa-film text-cyan-300"></i>
           </div>
-          <span class="rounded-full bg-green-500/20 px-3 py-1 text-xs font-medium text-green-300">Updated</span>
+          <div>
+            <h3 class="font-bold">Netflix ULP Extractor</h3>
+            <span class="text-xs text-green-400">✓ Updated</span>
+          </div>
         </div>
-        <p class="text-gray-300 mb-6 text-sm">
-          Extracts Netflix combos from ULP files, detects 179+ countries, and saves results with clean naming. Processes thousands of entries in seconds.
+        <p class="text-gray-400 text-sm mb-4">
+          Extracts Netflix combos from ULP files, detects 179+ countries, and organizes results automatically.
         </p>
-        <div class="mb-6 space-y-2">
-          <div class="flex items-center gap-2"><i class="fas fa-check text-cyan-300 text-xs"></i><span class="text-sm">Extracts Netflix combos only</span></div>
-          <div class="flex items-center gap-2"><i class="fas fa-check text-cyan-300 text-xs"></i><span class="text-sm">Detects 179+ countries</span></div>
-          <div class="flex items-center gap-2"><i class="fas fa-check text-cyan-300 text-xs"></i><span class="text-sm">Auto‑saves with clean naming</span></div>
+        <div class="space-y-2 mb-4 text-sm">
+          <div class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i> 38K+ combos processed</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i> 179 countries detected</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i> 10-second processing</div>
         </div>
-        <div class="flex gap-3">
-          <a href="https://strmsstss-b8bfaa3f93ff.herokuapp.com/AgADqh79823/taarget%20%20ulp%20netflix.exe"
-             class="flex-1 rounded-xl bg-cyan-500/20 border border-cyan-500/30 px-4 py-2.5 text-center text-sm font-semibold text-cyan-300 hover:bg-cyan-500/30 transition-colors">
+        <div class="flex gap-2">
+          <a href="https://strmsstss-b8bfaa3f93ff.herokuapp.com/AgADqh79823/taarget%20%20ulp%20netflix.exe" class="flex-1 rounded-lg bg-cyan-500/20 border border-cyan-500/30 px-3 py-2 text-center text-sm hover:bg-cyan-500/30">
             Download
           </a>
-          <a href="#community" class="flex-1 rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-center text-sm font-semibold hover:bg-white/10 transition-colors">
-            Guide
-          </a>
-        </div>
-      </div>
-      <div class="fade-in-up delay-2 tool-card rounded-3xl border border-purple-500/20 bg-gradient-to-b from-gray-900/60 to-gray-900/30 p-6">
-        <div class="mb-4 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="rounded-xl bg-purple-500/20 p-3">
-              <i class="fab fa-xbox text-purple-300 text-xl"></i>
-            </div>
-            <div>
-              <div class="font-bold">Xbox/Microsoft API</div>
-              <div class="text-xs text-gray-400">Account verification system</div>
-            </div>
-          </div>
-          <span class="rounded-full bg-yellow-500/20 px-3 py-1 text-xs font-medium text-yellow-300">PRO</span>
-        </div>
-        <p class="text-gray-300 mb-6 text-sm">
-          Extracts credentials, full profile, payment details, subscriptions, order history, rewards, and metadata. Real‑time results, 99.9% uptime.
-        </p>
-        <div class="mb-4">
-          <div class="text-xs text-gray-400 mb-2">Pricing Tiers:</div>
-          <div class="space-y-2">
-            <div class="flex justify-between text-sm"><span>BASIC</span><span class="text-cyan-300">Credentials + Balance</span></div>
-            <div class="flex justify-between text-sm"><span>PRO</span><span class="text-purple-300">Full payments + Orders</span></div>
-            <div class="flex justify-between text-sm"><span>ELITE</span><span class="text-pink-300">Complete data + History</span></div>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <a href="#community" class="flex-1 rounded-xl bg-purple-500/20 border border-purple-500/30 px-4 py-2.5 text-center text-sm font-semibold text-purple-300 hover:bg-purple-500/30 transition-colors">
-            Get Access
-          </a>
-          <a href="#community" class="flex-1 rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-center text-sm font-semibold hover:bg-white/10 transition-colors">
-            Details
-          </a>
-        </div>
-      </div>
-      <div class="fade-in-up delay-3 tool-card rounded-3xl border border-pink-500/20 bg-gradient-to-b from-gray-900/60 to-gray-900/30 p-6">
-        <div class="mb-4 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="rounded-xl bg-pink-500/20 p-3">
-              <i class="fas fa-shield-alt text-pink-300 text-xl"></i>
-            </div>
-            <div>
-              <div class="font-bold">Certificate Tool</div>
-              <div class="text-xs text-gray-400">Security & validation utility</div>
-            </div>
-          </div>
-          <span class="rounded-full bg-blue-500/20 px-3 py-1 text-xs font-medium text-blue-300">NEW</span>
-        </div>
-        <p class="text-gray-300 mb-6 text-sm">
-          Advanced certificate generation, validation, and management for security testing and educational purposes.
-        </p>
-        <div class="mb-6 space-y-2">
-          <div class="flex items-center gap-2"><i class="fas fa-check text-pink-300 text-xs"></i><span class="text-sm">Certificate generation & validation</span></div>
-          <div class="flex items-center gap-2"><i class="fas fa-check text-pink-300 text-xs"></i><span class="text-sm">Multiple format support</span></div>
-          <div class="flex items-center gap-2"><i class="fas fa-check text-pink-300 text-xs"></i><span class="text-sm">Batch processing capability</span></div>
-        </div>
-        <div class="flex gap-3">
-          <a href="#community" class="flex-1 rounded-xl bg-pink-500/20 border border-pink-500/30 px-4 py-2.5 text-center text-sm font-semibold text-pink-300 hover:bg-pink-500/30 transition-colors">
-            Inquire
-          </a>
-          <a href="#community" class="flex-1 rounded-xl border border-white/20 bg-white/5 px-4 py-2.5 text-center text-sm font-semibold hover:bg-white/10 transition-colors">
+          <a href="https://allichetools-ff922c.gitlab.io/" target="_blank" class="flex-1 rounded-lg border border-white/10 px-3 py-2 text-center text-sm hover:bg-white/10">
             Learn More
           </a>
         </div>
       </div>
-    </div>
 
-    <!-- Free Trial Announcement -->
-    <div class="mt-12 fade-in-up">
-      <div class="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <i class="fas fa-gift text-yellow-300 text-2xl"></i>
+      <!-- Xbox Elite Checker -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-purple-500/30 transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-10 w-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+            <i class="fab fa-xbox text-purple-300"></i>
+          </div>
           <div>
-            <div class="font-bold text-lg">Free Trial Coming Soon!</div>
-            <p class="text-sm text-gray-300">When we hit 30 subscribers, a 3‑day free trial will be posted. Stay tuned!</p>
+            <h3 class="font-bold">Xbox Elite Checker Pro v4.0.0</h3>
+            <span class="text-xs text-yellow-400">PRO + 3-Day Trial</span>
           </div>
         </div>
-        <a href="https://t.me/allichetools" target="_blank" class="rounded-xl bg-yellow-500/20 border border-yellow-500/30 px-5 py-2.5 font-semibold text-yellow-300 hover:bg-yellow-500/30 transition-colors">
-          <i class="fab fa-telegram mr-2"></i>Join Channel
-        </a>
-      </div>
-    </div>
-
-    <div class="mt-8 text-center fade-in-up">
-      <p class="text-gray-400">Need a custom solution? <a href="#community" class="text-cyan-300 hover:underline">Request a tool</a> and I'll do my best to build it.</p>
-    </div>
-  </section>
-
-  <!-- Emotional Story Section -->
-  <section id="story" class="mx-auto max-w-5xl px-4 py-20">
-    <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-gray-900/60 to-gray-900/30 p-8 md:p-12">
-      <div class="flex items-center gap-4 mb-8">
-        <img src="logo.jpg" alt="Creator" class="h-12 w-12 rounded-full object-cover parallax-element">
-        <div>
-          <div class="text-xl font-bold">A Personal Note From The Developer</div>
-          <div class="text-sm text-gray-400">Hi, I'm the creator of Alliche Tools 👋</div>
-        </div>
-      </div>
-      
-      <div class="space-y-6 text-gray-300">
-        <p class="text-lg leading-relaxed">
-          This project is <span class="text-cyan-300 font-semibold">more than just software</span> — it's a growing collection of tools built with 
-          <span class="text-purple-300 font-semibold">patience, passion, and persistence</span>.
+        <p class="text-gray-400 text-sm mb-4">
+          Professional Microsoft/Xbox account analyzer with proxy rotation and inbox analysis for 50+ services.
         </p>
-        
-        <div class="struggle-highlight">
-          <p class="leading-relaxed text-red-200">
-            <i class="fas fa-heartbeat text-red-400 mr-2"></i>
-            I build these tools while battling health issues that make every day a challenge. Medications, hospital visits, and the constant pain 
-            could have stopped me — but they didn't. Each line of code is written between moments of weakness, during sleepless nights, 
-            when the world is quiet and only my determination keeps me awake.
-          </p>
+        <div class="space-y-2 mb-4 text-sm">
+          <div class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> 50 concurrent threads</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> Proxy rotation system</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-xs"></i> Real-time statistics</div>
         </div>
-
-        <div class="hope-highlight">
-          <p class="leading-relaxed text-green-200">
-            <i class="fas fa-seedling text-green-400 mr-2"></i>
-            Yet, I continue building <span class="text-pink-300 font-semibold">despite limited resources and ongoing health struggles</span> because 
-            I believe in what I'm creating. Every tool that helps you save time is a small victory against the darkness. Your support is not just 
-            money — it's hope, it's validation, it's the fuel that keeps this fragile dream alive.
-          </p>
+        <div class="flex gap-2">
+          <a href="https://zappfiles.com/d/6959a82d3930ae8a54842c5d" class="flex-1 rounded-lg bg-purple-500/20 border border-purple-500/30 px-3 py-2 text-center text-sm hover:bg-purple-500/30">
+            Portable
+          </a>
+          <a href="https://zappfiles.com/d/6959b062e9f7903090e70d5c" class="flex-1 rounded-lg bg-purple-500/10 border border-purple-500/20 px-3 py-2 text-center text-sm hover:bg-purple-500/20">
+            Setup
+          </a>
         </div>
+      </div>
 
-        <div class="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-6 my-8">
-          <div class="flex items-start gap-4">
-            <i class="fas fa-heart text-cyan-300 text-2xl mt-1"></i>
-            <div>
-              <div class="font-bold text-lg mb-2">Every Contribution Matters</div>
-              <p class="text-gray-300">
-                If Alliche Tools saves you time, lightens your workload, or supports you in any way, and you feel moved to 
-                support the project, you're welcome to do so voluntarily. Every contribution helps me keep improving, maintaining, 
-                and keeping these tools available for everyone.
-              </p>
-            </div>
+      <!-- Alliche Extrateur Pro -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-pink-500/30 transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-10 w-10 rounded-lg bg-pink-500/20 flex items-center justify-center">
+            <i class="fas fa-rocket text-pink-300"></i>
           </div>
-        </div>
-
-        <p class="leading-relaxed">
-          Every line of code, every improvement, is created with care and the hope that it genuinely helps someone, somewhere.
-          Thank you for your kindness, your trust, and for being part of this journey. 
-          <span class="font-semibold">It truly means more than words can express 🤍</span>
-        </p>
-      </div>
-      
-      <div class="mt-10 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-6">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-cyan-300">2+</div>
-          <div class="text-sm text-gray-400">Years Building</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-300">10K+</div>
-          <div class="text-sm text-gray-400">Users Helped</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-pink-300">24/7</div>
-          <div class="text-sm text-gray-400">Support Available</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact Section (new emotional element) -->
-  <section class="mx-auto max-w-6xl px-4 py-16">
-    <div class="fade-in-up text-center mb-12">
-      <h2 class="text-3xl font-bold">How Your Support Directly Helps</h2>
-      <p class="text-gray-400 mt-4">See the real impact of every contribution</p>
-    </div>
-    <div class="grid gap-8 md:grid-cols-3">
-      <div class="fade-in-up delay-1 rounded-2xl border border-red-500/20 bg-gradient-to-b from-red-900/20 to-gray-900/30 p-6">
-        <i class="fas fa-pills text-3xl text-red-400 mb-4"></i>
-        <h3 class="font-bold text-lg mb-2">Medications & Treatment</h3>
-        <p class="text-gray-400 text-sm">Your donations help cover essential medications and treatments that keep me functional enough to code.</p>
-      </div>
-      <div class="fade-in-up delay-2 rounded-2xl border border-blue-500/20 bg-gradient-to-b from-blue-900/20 to-gray-900/30 p-6">
-        <i class="fas fa-server text-3xl text-blue-400 mb-4"></i>
-        <h3 class="font-bold text-lg mb-2">Server & Hosting</h3>
-        <p class="text-gray-400 text-sm">Keeps all tools online 24/7, ensuring you always have access when you need them.</p>
-      </div>
-      <div class="fade-in-up delay-3 rounded-2xl border border-green-500/20 bg-gradient-to-b from-green-900/20 to-gray-900/30 p-6">
-        <i class="fas fa-utensils text-3xl text-green-400 mb-4"></i>
-        <h3 class="font-bold text-lg mb-2">Basic Living Costs</h3>
-        <p class="text-gray-400 text-sm">During bad health days when I can't work elsewhere, this project is my lifeline.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Donation Section -->
-  <section id="donate" class="mx-auto max-w-6xl px-4 py-20">
-    <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-gray-900/80 to-gray-900/40 p-8 md:p-12 relative overflow-hidden">
-      <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl"></div>
-      <div class="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-purple-500/10 blur-3xl"></div>
-      <div class="relative z-10">
-        <div class="text-center mb-10">
-          <h2 class="text-4xl font-bold">Support My Work</h2>
-          <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
-            Your support helps me continue developing tools despite personal challenges. Every donation makes a real difference.
-          </p>
-        </div>
-        <div class="grid gap-8 md:grid-cols-2">
           <div>
-            <h3 class="text-2xl font-bold mb-4">Why Your Support Matters</h3>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-3"><i class="fas fa-medkit text-cyan-300 mt-1"></i><div><div class="font-medium">Health & Living Expenses</div><p class="text-sm text-gray-400">Helps cover costs during health challenges</p></div></li>
-              <li class="flex items-start gap-3"><i class="fas fa-code text-purple-300 mt-1"></i><div><div class="font-medium">Tool Development</div><p class="text-sm text-gray-400">Funds new features and improvements</p></div></li>
-              <li class="flex items-start gap-3"><i class="fas fa-server text-pink-300 mt-1"></i><div><div class="font-medium">Server & Hosting</div><p class="text-sm text-gray-400">Keeps tools online and accessible</p></div></li>
-            </ul>
-            <div class="mt-8">
-              <p class="text-sm text-gray-400 italic">
-                "No pressure — only if these tools have helped you and you want to support their continued development."
-              </p>
-            </div>
-          </div>
-          <div class="rounded-2xl border border-cyan-500/30 bg-gradient-to-b from-gray-900/80 to-gray-900/40 p-6 heartbeat glow-pulse">
-            <div class="text-center mb-6">
-              <div class="inline-flex items-center gap-2 rounded-full bg-cyan-500/20 px-4 py-2 mb-4">
-                <i class="fas fa-heart text-cyan-300"></i>
-                <span class="font-medium">Direct Support</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-2">Binance Donation</h3>
-              <p class="text-gray-400">Send any amount you feel comfortable with</p>
-            </div>
-            <div class="mb-6">
-              <div class="text-center">
-                <div class="text-sm text-gray-400 mb-2">My Binance ID:</div>
-                <div class="text-4xl font-bold tracking-widest text-cyan-300 mb-2" id="binanceId">801774085</div>
-                <div class="text-xs text-gray-500">Click to copy, then paste in Binance app</div>
-              </div>
-            </div>
-            <div class="space-y-4">
-              <button onclick="copyBinanceId()" class="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 py-3.5 font-bold text-white shadow-lg hover:shadow-cyan-500/25 transition-all">
-                <i class="fas fa-copy mr-2"></i>Copy Binance ID
-              </button>
-              <div id="copyStatus" class="text-center text-sm h-6"></div>
-              <div class="rounded-xl border border-white/10 bg-white/5 p-4">
-                <div class="flex items-center justify-center gap-2 text-sm">
-                  <i class="fas fa-hand-holding-heart text-pink-300"></i>
-                  <span>Thank you for your kindness and support 🤍</span>
-                </div>
-              </div>
-            </div>
+            <h3 class="font-bold">Alliche Extrateur Pro</h3>
+            <span class="text-xs text-blue-400">8+ Platforms + Custom</span>
           </div>
         </div>
-        <div class="mt-12 text-center">
-          <p class="text-gray-400 max-w-2xl mx-auto">
-            Even if you can't donate, sharing these tools or joining our community helps immensely. Your trust and support mean the world to me.
-          </p>
+        <p class="text-gray-400 text-sm mb-4">
+          Smart Windows tool to extract & organize ULP combos by site and country automatically.
+        </p>
+        <div class="space-y-2 mb-4 text-sm">
+          <div class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> Auto site detection</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> Country sorting</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-pink-400 text-xs"></i> Clean GUI</div>
+        </div>
+        <div class="flex gap-2">
+          <a href="https://strmsstss-b8bfaa3f93ff.herokuapp.com/AgADmw82661/Alliche_ULP_Combo_Hunter_Extrateur_Pro.exe" class="flex-1 rounded-lg bg-pink-500/20 border border-pink-500/30 px-3 py-2 text-center text-sm hover:bg-pink-500/30">
+            Portable
+          </a>
+          <a href="https://strmsstss-b8bfaa3f93ff.herokuapp.com/AgADmg82667/Alliche_ULP_Combo_Hunter_Extrateur_Pro_Setup.exe" class="flex-1 rounded-lg border border-white/10 px-3 py-2 text-center text-sm hover:bg-white/10">
+            Setup
+          </a>
         </div>
       </div>
+
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="https://allichetools-ff922c.gitlab.io/" target="_blank" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300">
+        <i class="fas fa-external-link-alt"></i> Visit our full website for more tools and updates
+      </a>
     </div>
   </section>
 
   <!-- Community Section -->
-  <section id="community" class="mx-auto max-w-6xl px-4 py-20">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold">Join Our Community</h2>
-      <p class="text-gray-400 mt-4">Get updates, ask questions, or request custom tools</p>
+  <section id="community" class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-12">Join Our Community</h2>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <a href="https://t.me/allichetools" target="_blank" class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-cyan-500/30 hover:bg-cyan-500/10 transition-all text-center">
+        <i class="fas fa-broadcast-tower text-2xl text-cyan-400 mb-2"></i>
+        <div class="font-bold">@allichetools</div>
+        <div class="text-sm text-gray-400">Official Channel</div>
+      </a>
+      <a href="https://t.me/allichetoolsgroup" target="_blank" class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-purple-500/30 hover:bg-purple-500/10 transition-all text-center">
+        <i class="fas fa-users text-2xl text-purple-400 mb-2"></i>
+        <div class="font-bold">@allichetoolsgroup</div>
+        <div class="text-sm text-gray-400">Group Chat</div>
+      </a>
+      <a href="https://t.me/alliche_bot" target="_blank" class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-pink-500/30 hover:bg-pink-500/10 transition-all text-center">
+        <i class="fas fa-robot text-2xl text-pink-400 mb-2"></i>
+        <div class="font-bold">@alliche_bot</div>
+        <div class="text-sm text-gray-400">Support Bot</div>
+      </a>
+      <a href="https://t.me/allicheamine2" target="_blank" class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-green-500/30 hover:bg-green-500/10 transition-all text-center">
+        <i class="fas fa-envelope text-2xl text-green-400 mb-2"></i>
+        <div class="font-bold">@allicheamine2</div>
+        <div class="text-sm text-gray-400">Personal DM</div>
+      </a>
     </div>
+  </section>
 
-    <!-- Telegram Channel Stats -->
-    <div class="fade-in-up mb-12">
-      <div class="rounded-2xl border border-white/10 bg-gray-900/60 p-6 max-w-2xl mx-auto text-center">
-        <h3 class="text-xl font-bold mb-4">Channel Stats (Live)</h3>
-        <div class="grid grid-cols-3 gap-4">
-          <div>
-            <div class="text-2xl font-bold text-cyan-300" id="memberCount">-</div>
-            <div class="text-sm text-gray-400">Members</div>
-          </div>
-          <div>
-            <div class="text-2xl font-bold text-purple-300" id="onlineCount">-</div>
-            <div class="text-sm text-gray-400">Online</div>
-          </div>
-          <div>
-            <div class="text-2xl font-bold text-pink-300" id="growthRate">-</div>
-            <div class="text-sm text-gray-400">Growth</div>
-          </div>
+  <!-- Support Section -->
+  <section id="support" class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-12">Support The Project</h2>
+    <p class="text-gray-400 text-center mb-8 max-w-3xl mx-auto">
+      Your support helps me continue developing tools despite health challenges. Every contribution makes a real difference in keeping these tools free and updated.
+    </p>
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="rounded-xl border border-cyan-500/30 bg-cyan-500/10 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <i class="fab fa-bitcoin text-2xl text-cyan-400"></i>
+          <h3 class="font-bold text-lg">Binance Donation</h3>
         </div>
-        <div class="mt-4">
-          <button onclick="fetchChannelStats()" class="rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-5 py-2.5 font-semibold text-white hover:shadow-cyan-500/25 transition-all">
-            <i class="fas fa-sync-alt mr-2"></i>Refresh Stats
-          </button>
+        <p class="text-sm text-gray-400 mb-4">Direct crypto support — use this ID in your Binance app:</p>
+        <div class="mb-4">
+          <div class="text-3xl font-bold text-cyan-400 font-mono text-center">801774085</div>
         </div>
-        <p class="text-xs text-gray-500 mt-3">Data fetched via Telegram Bot API</p>
+        <button onclick="navigator.clipboard.writeText('801774085').then(() => alert('Binance ID copied!'))" class="w-full rounded-lg bg-cyan-500/20 border border-cyan-500/30 px-4 py-2 hover:bg-cyan-500/30 transition-colors">
+          <i class="fas fa-copy mr-2"></i>Copy ID
+        </button>
+        <div class="mt-4 text-xs text-gray-500 text-center">💠 Binance ID: 801774085</div>
       </div>
-    </div>
 
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-      <a href="https://t.me/allichetools" target="_blank" class="group rounded-3xl border border-cyan-500/20 bg-gradient-to-b from-gray-900/60 to-gray-900/30 p-6 text-center transition-all hover:border-cyan-500/40 hover:scale-105">
-        <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/20 group-hover:bg-cyan-500/30 transition-colors">
-          <i class="fas fa-broadcast-tower text-2xl text-cyan-300"></i>
+      <div class="rounded-xl border border-green-500/30 bg-green-500/10 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <i class="fas fa-envelope text-2xl text-green-400"></i>
+          <h3 class="font-bold text-lg">Email Contact</h3>
         </div>
-        <div class="font-bold text-lg">Channel</div>
-        <div class="text-cyan-300 mb-2">@allichetools</div>
-        <div class="text-sm text-gray-400">News • Releases • Updates</div>
-      </a>
-      <a href="https://t.me/allichetoolsgroup" target="_blank" class="group rounded-3xl border border-purple-500/20 bg-gradient-to-b from-gray-900/60 to-gray-900/30 p-6 text-center transition-all hover:border-purple-500/40 hover:scale-105">
-        <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-500/20 group-hover:bg-purple-500/30 transition-colors">
-          <i class="fas fa-users text-2xl text-purple-300"></i>
-        </div>
-        <div class="font-bold text-lg">Group Chat</div>
-        <div class="text-purple-300 mb-2">@allichetoolsgroup</div>
-        <div class="text-sm text-gray-400">Help • Feedback • Community</div>
-      </a>
-      <a href="https://t.me/alliche_bot" target="_blank" class="group rounded-3xl border border-pink-500/20 bg-gradient-to-b from-gray-900/60 to-gray-900/30 p-6 text-center transition-all hover:border-pink-500/40 hover:scale-105">
-        <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-pink-500/20 group-hover:bg-pink-500/30 transition-colors">
-          <i class="fas fa-robot text-2xl text-pink-300"></i>
-        </div>
-        <div class="font-bold text-lg">Support Bot</div>
-        <div class="text-pink-300 mb-2">@alliche_bot</div>
-        <div class="text-sm text-gray-400">Direct support & requests</div>
-      </a>
-      <a href="https://t.me/allicheamine2" target="_blank" class="group rounded-3xl border border-green-500/20 bg-gradient-to-b from-gray-900/60 to-gray-900/30 p-6 text-center transition-all hover:border-green-500/40 hover:scale-105">
-        <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-green-500/20 group-hover:bg-green-500/30 transition-colors">
-          <i class="fas fa-envelope text-2xl text-green-300"></i>
-        </div>
-        <div class="font-bold text-lg">Personal DM</div>
-        <div class="text-green-300 mb-2">@allicheamine2</div>
-        <div class="text-sm text-gray-400">Direct message for help</div>
-      </a>
-    </div>
-
-    <div class="mt-12 text-center">
-      <div class="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4">
-        <i class="fas fa-star text-yellow-300"></i>
-        <span>Thank you for being part of this journey. Your support means everything.</span>
-        <i class="fas fa-star text-yellow-300"></i>
+        <p class="text-sm text-gray-400 mb-4">For questions, requests, or direct support:</p>
+        <a href="mailto:shadowsqaurteam@gmail.com" class="block text-lg text-green-400 hover:underline text-center mb-4">shadowsqaurteam@gmail.com</a>
+        <a href="mailto:shadowsqaurteam@gmail.com" class="w-full inline-block rounded-lg bg-green-500/20 border border-green-500/30 px-4 py-2 text-center hover:bg-green-500/30 transition-colors">
+          <i class="fas fa-paper-plane mr-2"></i>Send Email
+        </a>
+        <div class="mt-4 text-xs text-gray-500 text-center">📬 Response within 24-48 hours</div>
       </div>
-    </div>
-    <!-- Shared GIF -->
-    <div class="mt-8 flex justify-center">
-      <img src="sharled.gif" alt="Shared GIF" class="rounded-2xl border border-white/10 shadow-lg max-w-full h-auto fade-in-out">
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 bg-gray-950/50 backdrop-blur">
-    <div class="mx-auto max-w-7xl px-4 py-8">
-      <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
-        <div class="text-center md:text-left">
-          <div class="flex items-center justify-center gap-3 md:justify-start">
-            <img src="logo.jpg" alt="Logo" class="h-8 w-8 rounded-lg object-cover parallax-element">
-            <div class="text-lg font-bold">Alliche Tools</div>
+  <footer class="border-t border-white/10 bg-gray-950 mt-12">
+    <div class="mx-auto max-w-6xl px-4 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+            <i class="fas fa-tools text-white text-sm"></i>
           </div>
-          <div class="mt-2 text-sm text-gray-400">Built with care, powered by community support</div>
+          <div>
+            <div class="font-bold">Alliche Tools</div>
+            <div class="text-xs text-gray-500">© 2025 Built with care</div>
+          </div>
         </div>
-        <div class="flex gap-6">
-          <a href="#tools" class="text-sm hover:text-cyan-300 transition-colors">Tools</a>
-          <a href="#donate" class="text-sm hover:text-cyan-300 transition-colors">Support</a>
-          <a href="#community" class="text-sm hover:text-cyan-300 transition-colors">Community</a>
-        </div>
-        <div class="text-sm text-gray-500">
-          © <span id="year"></span> Alliche Tools. All utilities for educational use.
+        <div class="flex gap-6 text-sm">
+          <a href="https://t.me/allichetools" target="_blank" class="hover:text-cyan-400">Channel</a>
+          <a href="#support" class="hover:text-cyan-400">Support</a>
+          <a href="https://allichetools-ff922c.gitlab.io/" target="_blank" class="hover:text-cyan-400">Full Site</a>
         </div>
       </div>
-      <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
-        <p>This project continues thanks to the kindness of users who believe in its purpose.</p>
+      <div class="text-center text-xs text-gray-600 mt-4">
+        For educational & authorized testing only. Created by Alliche Amine Mohammed.
       </div>
     </div>
   </footer>
 
-  <script>
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Copy Binance ID
-    function copyBinanceId() {
-      const id = '801774085';
-      navigator.clipboard.writeText(id).then(() => {
-        const el = document.getElementById('copyStatus');
-        el.innerHTML = '<span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Copied! Ready to paste</span>';
-        setTimeout(() => {
-          el.innerHTML = '<span class="text-cyan-300">Paste in Binance app to donate</span>';
-        }, 3000);
-      }).catch(err => {
-        console.error('Failed to copy: ', err);
-        document.getElementById('copyStatus').innerHTML = '<span class="text-red-400">Failed to copy</span>';
-      });
-    }
-
-    // Music control
-    let currentTrack = 1;
-    let isPlaying = false;
-    const musicControl = document.getElementById('musicControl');
-    const musicIcon = document.getElementById('musicIcon');
-    const audio1 = document.getElementById('bgMusic1');
-    const audio2 = document.getElementById('bgMusic2');
-
-    function toggleMusic() {
-      if (!isPlaying) {
-        // Alternate between tracks
-        const audio = currentTrack === 1 ? audio1 : audio2;
-        audio.volume = 0.3; // Gentle volume
-        audio.play().then(() => {
-          isPlaying = true;
-          musicControl.classList.add('playing');
-          musicIcon.className = 'fas fa-pause';
-        }).catch(err => {
-          console.log('Autoplay blocked:', err);
-          alert('Please click the music icon to enable background music. Some browsers require user interaction.');
-        });
-      } else {
-        audio1.pause();
-        audio2.pause();
-        isPlaying = false;
-        musicControl.classList.remove('playing');
-        musicIcon.className = 'fas fa-music';
-      }
-    }
-
-    // Auto-switch tracks
-    audio1.addEventListener('ended', () => { audio2.play(); currentTrack = 2; });
-    audio2.addEventListener('ended', () => { audio1.play(); currentTrack = 1; });
-
-    // Telegram Bot API
-    const BOT_TOKEN = '8025141677:AAEAPJ9AT6SbobWqd69Uf73SRzriyqeWt7o';
-    const CHANNEL_ID = '@allichetools';
-
-    async function fetchChannelStats() {
-      const memberEl = document.getElementById('memberCount');
-      const onlineEl = document.getElementById('onlineCount');
-      const growthEl = document.getElementById('growthRate');
-      memberEl.textContent = '...'; onlineEl.textContent = '...'; growthEl.textContent = '...';
-      try {
-        const countRes = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getChatMembersCount?chat_id=${CHANNEL_ID}`);
-        const countData = await countRes.json();
-        if (countData.ok) {
-          memberEl.textContent = countData.result.toLocaleString();
-        } else {
-          memberEl.textContent = 'Error';
-        }
-        onlineEl.textContent = 'N/A'; // Telegram doesn't expose this publicly
-        growthEl.textContent = '+12%'; // Placeholder
-      } catch (e) {
-        console.error(e);
-        memberEl.textContent = 'Error'; onlineEl.textContent = 'Error'; growthEl.textContent = 'Error';
-      }
-    }
-
-    // Intersection Observer
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
-        }
-      });
-    }, observerOptions);
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-
-    // Initialize stats
-    window.addEventListener('DOMContentLoaded', () => {
-      fetchChannelStats();
-    });
-  </script>
 </body>
 </html>
